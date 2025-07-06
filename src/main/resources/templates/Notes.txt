@@ -1,0 +1,29 @@
+✅ Database Secret Created
+
+A Kubernetes Secret named "{{ .Values.database.secretName }}" has been created with the following keys:
+
+- url
+- username
+- password
+
+To access them from your deployment, reference the Secret like this:
+
+  env:
+    - name: DB_URL
+      valueFrom:
+        secretKeyRef:
+          name: {{ .Values.database.secretName }}
+          key: url
+    - name: DB_USERNAME
+      valueFrom:
+        secretKeyRef:
+          name: {{ .Values.database.secretName }}
+          key: username
+    - name: DB_PASSWORD
+      valueFrom:
+        secretKeyRef:
+          name: {{ .Values.database.secretName }}
+          key: password
+
+You can also verify the secret was created using:
+  kubectl get secret {{ .Values.database.secretName }} -o yaml

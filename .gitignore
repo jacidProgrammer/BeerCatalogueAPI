@@ -1,0 +1,70 @@
+# Java and Maven
+target/
+*.class
+*.jar
+*.war
+*.iml
+
+# Maven
+.mvn/
+!**/src/main/**/mvnw*
+!**/src/main/**/mvnw.cmd
+.settings/
+.project
+.classpath
+
+# IntelliJ IDEA
+.idea/
+*.iws
+*.ipr
+*.iml
+out/
+
+# Eclipse
+*.prefs
+*.metadata
+*.log
+*.tmp
+*.bak
+*.swp
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/
+*.log
+
+# Spring Boot specific
+spring.log
+
+# Environment / config
+.env
+application-dev.yml
+application-prod.yml
+
+# Kubernetes
+k8s/*.yaml
+*.yaml~ # temp backups
+*.yml~
+
+# Helm
+helm/Chart.lock
+helm/charts/
+helm/tmp/
+helm/output/
+
+# Docker
+*.dockerfile
+**/Dockerfile
+docker-compose.override.yml
+docker-compose.yml
+**/.dockerignore
+
+# Scripts
+scripts/*.sh~
+scripts/*.ps1~
+
+# VSCode
+.vscode/
