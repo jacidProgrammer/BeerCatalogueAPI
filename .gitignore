@@ -48,6 +48,9 @@ application-prod.yml
 k8s/*.yaml
 *.yaml~ # temp backups
 *.yml~
+# Exceptions for specific Kubernetes files
+!k8s/deployment.yaml
+!k8s/services.yaml
 
 # Helm
 helm/Chart.lock
@@ -57,7 +60,6 @@ helm/output/
 
 # Docker
 *.dockerfile
-**/Dockerfile
 docker-compose.override.yml
 docker-compose.yml
 **/.dockerignore
