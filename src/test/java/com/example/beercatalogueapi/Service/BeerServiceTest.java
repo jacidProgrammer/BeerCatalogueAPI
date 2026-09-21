@@ -10,7 +10,6 @@ import java.util.List;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
@@ -28,12 +27,12 @@ class BeerServiceTest {
     @Mock
     private ManufacturerRepository manufacturerRepository;
 
-    @InjectMocks
     private BeerService beerService;
 
     @BeforeEach
     void setUp() {
         MockitoAnnotations.openMocks(this);
+        beerService = new BeerService(beerRepository, manufacturerRepository);
     }
 
     @Test

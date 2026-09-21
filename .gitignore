@@ -1,72 +1,52 @@
-# Java and Maven
+# Maven / Java build output
 target/
 *.class
 *.jar
 *.war
-*.iml
+out/
 
-# Maven
-.mvn/
-!**/src/main/**/mvnw*
-!**/src/main/**/mvnw.cmd
-.settings/
-.project
-.classpath
+# Maven wrapper: keep the wrapper config, ignore any downloaded jar
+!.mvn/wrapper/maven-wrapper.properties
 
 # IntelliJ IDEA
 .idea/
+*.iml
 *.iws
 *.ipr
-*.iml
-out/
 
 # Eclipse
-*.prefs
-*.metadata
-*.log
-*.tmp
-*.bak
-*.swp
+.settings/
+.project
+.classpath
+.metadata/
+
+# VS Code
+.vscode/
 
 # OS-specific
 .DS_Store
 Thumbs.db
 
-# Logs
+# Logs and temp files
 logs/
 *.log
+*.tmp
+*.bak
+*.swp
+*~
 
-# Spring Boot specific
-spring.log
-
-# Environment / config
+# Environment / local config (never commit secrets)
 .env
+.env.*
+!.env.example
 application-dev.yml
-application-prod.yml
-
-# Kubernetes
-k8s/*.yaml
-*.yaml~ # temp backups
-*.yml~
-# Exceptions for specific Kubernetes files
-!k8s/deployment.yaml
-!k8s/services.yaml
+application-dev.properties
 
 # Helm
-helm/Chart.lock
-helm/charts/
-helm/tmp/
-helm/output/
+helm/*/charts/
+helm/*/Chart.lock
+*.tgz
 
 # Docker
-*.dockerfile
 docker-compose.override.yml
-docker-compose.yml
-**/.dockerignore
-
-# Scripts
-scripts/*.sh~
-scripts/*.ps1~
-
-# VSCode
-.vscode/
+compose.override.yaml

@@ -1,4 +1,3 @@
-version: '3.8'
 services:
   db:
     image: postgres:17
@@ -9,9 +8,12 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - ./src/main/resources/static/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
 
+  # Only started with `docker compose --profile app up`, so that
+  # `./mvnw spring-boot:run` (spring-boot-docker-compose) starts just the database.
   app:
+    profiles: ["app"]
     build: .
     environment:
       SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/BeerCatalogueAPI

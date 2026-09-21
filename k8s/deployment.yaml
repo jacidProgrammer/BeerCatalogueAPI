@@ -9,8 +9,6 @@ spec:
       app: beer-catalogue
   template:
     metadata:
-      annotations:
-        date: "{{ now }}"
       labels:
         app: beer-catalogue
     spec:

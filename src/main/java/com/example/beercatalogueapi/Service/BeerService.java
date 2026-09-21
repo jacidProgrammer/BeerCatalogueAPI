@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.beercatalogueapi.DTO.BeerDTO;
@@ -19,11 +18,13 @@ import jakarta.transaction.Transactional;
 @Service
 public class BeerService {
 
-    @Autowired
-    private BeerRepository beerRepository;
+    private final BeerRepository beerRepository;
+    private final ManufacturerRepository manufacturerRepository;
 
-    @Autowired
-    private ManufacturerRepository manufacturerRepository;
+    public BeerService(BeerRepository beerRepository, ManufacturerRepository manufacturerRepository) {
+        this.beerRepository = beerRepository;
+        this.manufacturerRepository = manufacturerRepository;
+    }
 
     public List<BeerDTO> getAllBeers() {
         return beerRepository.findAll()

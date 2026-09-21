@@ -1,0 +1,6 @@
+apiVersion: v2
+name: beer-catalogue
+description: Kubernetes Secret with the PostgreSQL credentials used by BeerCatalogueAPI
+type: application
+version: 0.1.0
+appVersion: "0.0.1-SNAPSHOT"

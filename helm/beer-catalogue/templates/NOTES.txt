@@ -1,4 +1,4 @@
-✅ Database Secret Created
+Database Secret created
 
 A Kubernetes Secret named "{{ .Values.database.secretName }}" has been created with the following keys:
 
@@ -6,24 +6,24 @@ A Kubernetes Secret named "{{ .Values.database.secretName }}" has been created w
 - username
 - password
 
-To access them from your deployment, reference the Secret like this:
+k8s/deployment.yaml already consumes it as Spring Boot datasource settings:
 
   env:
-    - name: DB_URL
+    - name: SPRING_DATASOURCE_URL
       valueFrom:
         secretKeyRef:
           name: {{ .Values.database.secretName }}
           key: url
-    - name: DB_USERNAME
+    - name: SPRING_DATASOURCE_USERNAME
       valueFrom:
         secretKeyRef:
           name: {{ .Values.database.secretName }}
           key: username
-    - name: DB_PASSWORD
+    - name: SPRING_DATASOURCE_PASSWORD
       valueFrom:
         secretKeyRef:
           name: {{ .Values.database.secretName }}
           key: password
 
-You can also verify the secret was created using:
+Verify the secret with:
   kubectl get secret {{ .Values.database.secretName }} -o yaml

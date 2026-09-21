@@ -2,7 +2,6 @@ package com.example.beercatalogueapi.Controllers;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,8 +16,11 @@ import com.example.beercatalogueapi.Service.BeerService;
 @RestController
 public class BeerController {
 
-    @Autowired
-    private BeerService beerService;
+    private final BeerService beerService;
+
+    public BeerController(BeerService beerService) {
+        this.beerService = beerService;
+    }
 
     @GetMapping("/api/beer")
     public List<BeerDTO> getBeers() {

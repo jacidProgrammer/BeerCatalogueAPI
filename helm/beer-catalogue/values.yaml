@@ -1,0 +1,11 @@
+database:
+  # Must match the secretKeyRef name used in k8s/deployment.yaml
+  secretName: db-secret
+  credentials:
+    # JDBC URL, injected as SPRING_DATASOURCE_URL
+    url: jdbc:postgresql://host.minikube.internal:5432/BeerCatalogueAPI
+    username: admin
+    # Never commit a real password. Provide it at install time:
+    #   helm upgrade --install beer-catalogue ./helm/beer-catalogue \
+    #     --set database.credentials.password='<your-password>'
+    password: ""

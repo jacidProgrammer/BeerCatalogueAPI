@@ -4,7 +4,6 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.beercatalogueapi.DTO.ManufacturerDTO;
@@ -16,8 +15,11 @@ import jakarta.transaction.Transactional;
 @Service
 public class ManufacturerService {
 
-    @Autowired
-    private ManufacturerRepository manufacturerRepository;
+    private final ManufacturerRepository manufacturerRepository;
+
+    public ManufacturerService(ManufacturerRepository manufacturerRepository) {
+        this.manufacturerRepository = manufacturerRepository;
+    }
 
     public List<ManufacturerDTO> getAllManufacturers() {
         return manufacturerRepository.findAll()

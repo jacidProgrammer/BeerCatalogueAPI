@@ -1,6 +1,0 @@
-database:
-  secretName: db-secret
-  credentials:
-    url: https://my-db.example.com
-    username: admin
-    password: secret123
